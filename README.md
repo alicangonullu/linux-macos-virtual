@@ -49,5 +49,6 @@ MOREARGS=()
     MOREARGS+=(-nographic -vnc :0 -k en-us)
 }
 </pre>
-Edit or add new options/settings
+
+Edit or add new options (Yeni ayar düzenleyin veya ekleyin)
 <br>
