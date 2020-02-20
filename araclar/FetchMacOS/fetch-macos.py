@@ -10,8 +10,8 @@ import click
 import requests
 import sys
 
-__author__ = "Ali Can Gönüllü"
-__copyright__ = "Copyright 2020, AliCan Project"
+__author__ = "Foxlet"
+__copyright__ = "Copyright 2019, FurCode Project"
 __license__ = "GPLv3"
 __version__ = "1.4"
 
@@ -19,23 +19,23 @@ logging.basicConfig(format='%(asctime)-15s %(message)s', level=logging.INFO)
 logger = logging.getLogger('webactivity')
 
 
-class HeaderData:
+class ClientMeta:
     # Client used to connect to the Software CDN
     osinstall = {"User-Agent":"osinstallersetupplaind (unknown version) CFNetwork/720.5.7 Darwin/14.5.0 (x86_64)"}
     # Client used to connect to the Software Distribution service
     swupdate = {"User-Agent":"Software%20Update (unknown version) CFNetwork/807.0.1 Darwin/16.0.0 (x86_64)"}
 
 
-class DosyaSistemi:
+class Filesystem:
     @staticmethod
     def download_file(url, size, path):
         label = url.split('/')[-1]
         filename = os.path.join(path, label)
         # Set to stream mode for large files
-        remote = requests.get(url, stream=True, headers=HeaderData.osinstall)
+        remote = requests.get(url, stream=True, headers=ClientMeta.osinstall)
 
         with open(filename, 'wb') as f:
-            with click.progressbar(remote.iter_content(1024), length=size/1024, label="Indiriliyor {} ...".format(filename)) as stream:
+            with click.progressbar(remote.iter_content(1024), length=size/1024, label="Fetching {} ...".format(filename)) as stream:
                 for data in stream:
                     f.write(data)
         return filename
@@ -50,8 +50,8 @@ class DosyaSistemi:
 
     @staticmethod
     def fetch_plist(url):
-        logging.info("Ağ İsteği: %s", "Indiriliyor {}".format(url))
-        plist_raw = requests.get(url, headers=HeaderData.swupdate)
+        logging.info("Network Request: %s", "Fetching {}".format(url))
+        plist_raw = requests.get(url, headers=ClientMeta.swupdate)
         plist_data = plist_raw.text.encode('UTF-8')
         return plist_data
     
@@ -63,7 +63,8 @@ class DosyaSistemi:
             root = plistlib.readPlistFromString(catalog_data)
         return root
 
-class YazilimServis:
+class SoftwareService:
+    # macOS 10.15 is available in 4 different catalogs from SoftwareScan
     catalogs = {
                 "10.15": {
                     "CustomerSeed":"https://swscan.apple.com/content/catalogs/others/index-10.15customerseed-10.15-10.14-10.13-10.12-10.11-10.10-10.9-mountainlion-lion-snowleopard-leopard.merged-1.sucatalog",
@@ -85,12 +86,12 @@ class YazilimServis:
         self.catalog_data = ""
 
     def getcatalog(self):
-        self.catalog_data = DosyaSistemi.fetch_plist(self.catalog_url)
+        self.catalog_data = Filesystem.fetch_plist(self.catalog_url)
         return self.catalog_data
 
     def getosinstall(self):
         # Load catalogs based on Py3/2 lib
-        root = DosyaSistemi.parse_plist(self.catalog_data)
+        root = Filesystem.parse_plist(self.catalog_data)
 
         # Iterate to find valid OSInstall packages
         ospackages = []
@@ -103,7 +104,7 @@ class YazilimServis:
         candidates = []
         for product in ospackages:
             meta_url = products.get(product, {}).get('ServerMetadataURL', {})
-            if self.version in DosyaSistemi.parse_plist(DosyaSistemi.fetch_plist(meta_url)).get('CFBundleShortVersionString', {}):
+            if self.version in Filesystem.parse_plist(Filesystem.fetch_plist(meta_url)).get('CFBundleShortVersionString', {}):
                 candidates.append(product)
         
         return candidates
@@ -111,30 +112,30 @@ class YazilimServis:
 
 class MacOSProduct:
     def __init__(self, catalog, product_id):
-        root = DosyaSistemi.parse_plist(catalog)
+        root = Filesystem.parse_plist(catalog)
         products = root['Products']
         self.date = root['IndexDate']
         self.product = products[product_id]
 
     def fetchpackages(self, path, keyword=None):
-        DosyaSistemi.check_directory(path)
+        Filesystem.check_directory(path)
         packages = self.product['Packages']
         if keyword:
             for item in packages:
                 if keyword in item.get("URL"):
-                    DosyaSistemi.download_file(item.get("URL"), item.get("Size"), path)
+                    Filesystem.download_file(item.get("URL"), item.get("Size"), path)
         else:
             for item in packages:
-                DosyaSistemi.download_file(item.get("URL"), item.get("Size"), path)
+                Filesystem.download_file(item.get("URL"), item.get("Size"), path)
 
 @click.command()
-@click.option('-o', '--cikis-klasoru', default="BaseSystem/", help="Çıkış Konumu.")
-@click.option('-v', '--katalog-surumu', default="10.15", help="Katalog Versiyonu.")
-@click.option('-c', '--katalog-id', default="PublicRelease", help="Katalog Adı.")
-@click.option('-p', '--urun-id', default="", help="Ürün ID (as seen in SoftwareUpdate).")
+@click.option('-o', '--output-dir', default="BaseSystem/", help="Target directory for package output.")
+@click.option('-v', '--catalog-version', default="10.15", help="Version of catalog.")
+@click.option('-c', '--catalog-id', default="PublicRelease", help="Name of catalog.")
+@click.option('-p', '--product-id', default="", help="Product ID (as seen in SoftwareUpdate).")
 def fetchmacos(output_dir="BaseSystem/", catalog_version="10.15", catalog_id="PublicRelease", product_id=""):
     # Get the remote catalog data
-    remote = YazilimServis(catalog_version, catalog_id)
+    remote = SoftwareService(catalog_version, catalog_id)
     catalog = remote.getcatalog()
 
     # If no product is given, find the latest OSInstall product
@@ -148,7 +149,7 @@ def fetchmacos(output_dir="BaseSystem/", catalog_version="10.15", catalog_id="Pu
         print("Product ID {} could not be found.".format(product_id))
         exit(1)
         
-    logging.info("Seçilen macOS Sürümü: {}".format(product_id))
+    logging.info("Selected macOS Product: {}".format(product_id))
 
     # Download package to disk
     product.fetchpackages(output_dir, keyword="BaseSystem")
