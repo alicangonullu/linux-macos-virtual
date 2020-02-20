@@ -129,10 +129,10 @@ class MacOSProduct:
                 Filesystem.download_file(item.get("URL"), item.get("Size"), path)
 
 @click.command()
-@click.option('-o', '--output-dir', default="BaseSystem/", help="Target directory for package output.")
-@click.option('-v', '--catalog-version', default="10.15", help="Version of catalog.")
-@click.option('-c', '--catalog-id', default="PublicRelease", help="Name of catalog.")
-@click.option('-p', '--product-id', default="", help="Product ID (as seen in SoftwareUpdate).")
+@click.option('-o', '--output-dir', default="BaseSystem/", help="Çıkış Klasoru.")
+@click.option('-v', '--catalog-version', default="10.15", help="Katalog Versiyonu.")
+@click.option('-c', '--catalog-id', default="PublicRelease", help="Katalog Adı.")
+@click.option('-p', '--product-id', default="", help="Ürün ID (as seen in SoftwareUpdate).")
 def fetchmacos(output_dir="BaseSystem/", catalog_version="10.15", catalog_id="PublicRelease", product_id=""):
     # Get the remote catalog data
     remote = SoftwareService(catalog_version, catalog_id)
