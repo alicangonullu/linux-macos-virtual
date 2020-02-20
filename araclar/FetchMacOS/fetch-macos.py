@@ -10,10 +10,10 @@ import click
 import requests
 import sys
 
-__author__ = "Foxlet"
-__copyright__ = "Copyright 2019, FurCode Project"
+__author__ = "Ali Can Gönüllü"
+__copyright__ = "Copyright 2020, Ali Can Gönüllü Project"
 __license__ = "GPLv3"
-__version__ = "1.4"
+__version__ = "1.0"
 
 logging.basicConfig(format='%(asctime)-15s %(message)s', level=logging.INFO)
 logger = logging.getLogger('webactivity')
