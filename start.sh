@@ -37,7 +37,6 @@ case $argument in
 esac
 
 "$TOOLS/dmg2img" "$TOOLS/FetchMacOS/BaseSystem/BaseSystem.dmg" "$PWD/BaseSystem.img"
-clear
 
 echo "---------------------------------"
 echo -n "MacOS'u Başlatalım Mı (y/n)? "
