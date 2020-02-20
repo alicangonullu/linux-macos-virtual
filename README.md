@@ -13,5 +13,11 @@
   ./kvm-basla.sh
   Temizlemek İçin :
   ./temizle.sh
+
+If you have sound problem, please edit kvm-basla.sh :
+export QEMU_AUDIO_DRV=pa
+QEMU_AUDIO_DRV=pa
+delete this code
+
 </pre>
 <br>
