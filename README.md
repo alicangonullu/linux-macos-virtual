@@ -21,7 +21,7 @@ QEMU_AUDIO_DRV=pa
 </pre>
 delete this code (bu kodu silin)
 <hr></hr>
-If do you need upgrade RAM, CPU or Extra Options ?, Please Edit kvm-basla.sh ( Yükseltme RAM, CPU veya Ekstra Seçeneklere ihtiyacınız varsa, lütfen kvm-basla.sh düzenleyin:):
+If do you need upgrade RAM, CPU or Extra Options ? Please Edit kvm-basla.sh ( Yükseltme RAM, CPU veya Ekstra Seçeneklere ihtiyacınız varsa, lütfen kvm-basla.sh düzenleyin:):
 <pre>
 SYSTEM_DISK="MyDisk.qcow2"
 
