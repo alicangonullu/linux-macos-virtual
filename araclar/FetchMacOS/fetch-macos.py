@@ -35,7 +35,7 @@ class Filesystem:
         remote = requests.get(url, stream=True, headers=ClientMeta.osinstall)
 
         with open(filename, 'wb') as f:
-            with click.progressbar(remote.iter_content(1024), length=size/1024, label="Fetching {} ...".format(filename)) as stream:
+            with click.progressbar(remote.iter_content(1024), length=size/1024, label="Indiriliyor {} ...".format(filename)) as stream:
                 for data in stream:
                     f.write(data)
         return filename
@@ -50,7 +50,7 @@ class Filesystem:
 
     @staticmethod
     def fetch_plist(url):
-        logging.info("Network Request: %s", "Fetching {}".format(url))
+        logging.info("Network Request: %s", "Indiriliyor {}".format(url))
         plist_raw = requests.get(url, headers=ClientMeta.swupdate)
         plist_data = plist_raw.text.encode('UTF-8')
         return plist_data
