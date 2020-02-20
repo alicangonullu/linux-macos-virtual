@@ -1,4 +1,3 @@
-# linux-macos-virtual
 <h1>Linux Automatic KVM macOS Installer / Remover</h1>
 <br>
 <b>Bu Nedir ?</b>
