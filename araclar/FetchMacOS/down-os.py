@@ -1,7 +1,5 @@
 #!/usr/bin/python
 
-"""fetch-macos.py: Fetches macOS products from Apple's SoftwareUpdate service."""
-
 import logging
 import plistlib
 import os
@@ -146,10 +144,10 @@ def fetchmacos(output_dir="BaseSystem/", catalog_version="10.15", catalog_id="Pu
     try:
         product = MacOSProduct(catalog, product_id)
     except KeyError:
-        print("Product ID {} could not be found.".format(product_id))
+        print("Ürün ID {} bulunamadı.".format(product_id))
         exit(1)
         
-    logging.info("Selected macOS Product: {}".format(product_id))
+    logging.info("Seçilen macOS Sürümü: {}".format(product_id))
 
     # Download package to disk
     product.fetchpackages(output_dir, keyword="BaseSystem")
