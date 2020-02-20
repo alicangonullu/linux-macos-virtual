@@ -4,7 +4,6 @@ chmod +x temizle.sh
 apt update
 sudo apt-get install qemu-system qemu-utils python3 python3-pip
 clear
-
 kullanim_goster() {
     echo
     echo "Kullanım: $0"
