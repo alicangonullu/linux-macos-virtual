@@ -45,7 +45,7 @@ echo "---------------------------------"
 read answer
 
 if [ "$answer" != "${answer#[Yy]}" ] ;then
-qemu-img create -f qcow2 MyDisk.qcow2 16G
+qemu-img create -f qcow2 MyDisk.qcow2 30G
 chmod +x kvm-basla.sh
 ./kvm-basla.sh
 clear
@@ -54,7 +54,7 @@ echo "Başlıyor..."
 echo "---------------------------------"
 
 else
-qemu-img create -f qcow2 MyDisk.qcow2 16G
+qemu-img create -f qcow2 MyDisk.qcow2 30G
 chmod +x kvm-basla.sh
 clear
 echo "---------------------------------"
