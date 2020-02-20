@@ -3,7 +3,7 @@
 <b>Bu Nedir ?</b>
 <hr></hr>
 <b>Linux ortamında macOS kullanabilmeniz için hazırlanmış bir sistemdir</b>
-<br>
+<hr></hr>
 <b>Nasıl Çalışır ?</b>
 <hr></hr>
 <code>Yükleme Için :
