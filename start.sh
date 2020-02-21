@@ -4,6 +4,7 @@ chmod +x temizle.sh
 apt update
 sudo apt-get install qemu-system qemu-utils python3 python3-pip
 clear
+
 kullanim_goster() {
     echo
     echo "Kullanım: $0"
@@ -49,7 +50,13 @@ chmod +x kvm-basla.sh
 ./kvm-basla.sh
 clear
 echo "---------------------------------"
+echo "Author / Yazar : Ali Can GÖNÜLLÜ"
 echo "Başlıyor..."
+echo "---------------------------------"
+echo "Sonrası İçin :"
+echo "---------------------------------"
+echo "Başlatmak için ./kvm-basla.sh yazın"
+echo "Temizlemek için ./temizle.sh yazın"
 echo "---------------------------------"
 
 else
@@ -57,6 +64,9 @@ qemu-img create -f qcow2 MyDisk.qcow2 30G
 chmod +x kvm-basla.sh
 clear
 echo "---------------------------------"
+kullanim_goster
+echo "---------------------------------"
+echo "Author / Yazar : Ali Can GÖNÜLLÜ"
 echo "Başlatmak için ./kvm-basla.sh yazın"
 echo "Temizlemek için ./temizle.sh yazın"
 echo "---------------------------------"
