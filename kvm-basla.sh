@@ -10,7 +10,7 @@ export QEMU_PA_SOURCE=input
 SYSTEM_DISK="MyDisk.qcow2"
 
 [[ -z "$MEM" ]] && {
-    MEM="25G"
+    MEM="8G"
 }
 
 [[ -z "$CPUS" ]] && {
@@ -22,7 +22,7 @@ SYSTEM_DISK="MyDisk.qcow2"
 }
 
 [[ -z "$VGAMEM" ]] && {
-	vgamem_mb="64"
+	vgamem_mb="256"
 }
 
 [[ -z "$SYSTEM_DISK" ]] && {
@@ -51,7 +51,7 @@ sudo qemu-system-x86_64 \
     -smbios type=2 \
     -drive if=pflash,format=raw,readonly,file="$OVMF/OVMF_CODE.fd" \
     -drive if=pflash,format=raw,file="$OVMF/OVMF_VARS-1024x768.fd" \
-    -device VGA, $VGAMEM \
+    -device qxl-vga, $VGAMEM \
     -device virtio-serial-pci \
     -soundhw hda \
     -usb -device usb-kbd -device usb-tablet \
