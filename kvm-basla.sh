@@ -5,6 +5,7 @@ OVMF=$VMDIR/firmware
 
 export QEMU_AUDIO_DRV=pa
 QEMU_AUDIO_DRV=pa
+
 SYSTEM_DISK="MyDisk.qcow2"
 
 [[ -z "$MEM" ]] && {
