@@ -3,21 +3,26 @@ OSK="ourhardworkbythesewordsguardedpleasedontsteal(c)AppleComputerInc"
 VMDIR=$PWD
 OVMF=$VMDIR/firmware
 
-export QEMU_AUDIO_DRV=pa
-QEMU_AUDIO_DRV=pa
+export QEMU_AUDIO_DRV=alsa
+export QEMU_PA_SINK=alsa_output.pci-0000_04_01.0.analog-stereo.monitor
+export QEMU_PA_SOURCE=input
 
 SYSTEM_DISK="MyDisk.qcow2"
 
 [[ -z "$MEM" ]] && {
-	MEM="25G"
+    MEM="25G"
 }
 
 [[ -z "$CPUS" ]] && {
-	CPUS=3
+	CPUS="3"
 }
 
 [[ -z "$CORE" ]] && {
-	cores=2
+	cores="2"
+}
+
+[[ -z "$VGAMEM" ]] && {
+	vgamem_mb="64"
 }
 
 [[ -z "$SYSTEM_DISK" ]] && {
@@ -33,7 +38,7 @@ SYSTEM_DISK="MyDisk.qcow2"
 MOREARGS=()
 
 [[ "$HEADLESS" = "1" ]] && {
-    MOREARGS+=(-nographic -vnc :0 -k en-us)
+    MOREARGS+=(-nographic -vnc ::0 -k tr-TR)
 }
 
 sudo qemu-system-x86_64 \
@@ -47,6 +52,8 @@ sudo qemu-system-x86_64 \
     -drive if=pflash,format=raw,readonly,file="$OVMF/OVMF_CODE.fd" \
     -drive if=pflash,format=raw,file="$OVMF/OVMF_VARS-1024x768.fd" \
     -vga qxl \
+    -device virtio-serial-pci \
+    -soundhw hda \
     -usb -device usb-kbd -device usb-tablet \
     -netdev user,id=net0 \
     -device e1000-82545em,netdev=net0,id=net0,mac=52:54:00:0e:0d:20 \
