@@ -50,6 +50,7 @@ MOREARGS=()
 }
 </pre>
 Edit or add new options (Yeni ayar düzenleyin veya ekleyin)
+
 <b>To Install on Disk</b>
 <pre>Disk Utility->Erase->30 GB Disk->MacOS Journal Format
 the process. Then proceed to the installation. (işlemini yapın. Ardından kuruluma geçin.)</pre>
