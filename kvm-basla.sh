@@ -10,7 +10,7 @@ export QEMU_PA_SOURCE=input
 SYSTEM_DISK="MyDisk.qcow2"
 
 [[ -z "$MEM" ]] && {
-    MEM="25G"
+    MEM="8G"
 }
 
 [[ -z "$CPUS" ]] && {
