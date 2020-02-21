@@ -51,7 +51,7 @@ sudo qemu-system-x86_64 \
     -smbios type=2 \
     -drive if=pflash,format=raw,readonly,file="$OVMF/OVMF_CODE.fd" \
     -drive if=pflash,format=raw,file="$OVMF/OVMF_VARS-1024x768.fd" \
-    -vga qxl \
+    -device qxl-vga, $VGAMEM \
     -device virtio-serial-pci \
     -soundhw hda \
     -usb -device usb-kbd -device usb-tablet \
