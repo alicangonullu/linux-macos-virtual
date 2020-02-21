@@ -8,11 +8,15 @@ QEMU_AUDIO_DRV=pa
 SYSTEM_DISK="MyDisk.qcow2"
 
 [[ -z "$MEM" ]] && {
-	MEM="2G"
+	MEM="25G"
 }
 
 [[ -z "$CPUS" ]] && {
-	CPUS=2
+	CPUS=3
+}
+
+[[ -z "$CORE" ]] && {
+	cores=2
 }
 
 [[ -z "$SYSTEM_DISK" ]] && {
@@ -31,11 +35,11 @@ MOREARGS=()
     MOREARGS+=(-nographic -vnc :0 -k en-us)
 }
 
-qemu-system-x86_64 \
+sudo qemu-system-x86_64 \
     -enable-kvm \
     -m $MEM \
     -machine q35,accel=kvm \
-    -smp $CPUS \
+    -smp $CPUS, $CORE\
     -cpu Penryn,vendor=GenuineIntel,kvm=on,+sse3,+sse4.2,+aes,+xsave,+avx,+xsaveopt,+xsavec,+xgetbv1,+avx2,+bmi2,+smep,+bmi1,+fma,+movbe,+invtsc \
     -device isa-applesmc,osk="$OSK" \
     -smbios type=2 \
