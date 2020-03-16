@@ -1,5 +1,6 @@
 TOOLS=$PWD/araclar
 clear
+
 echo "---------------------------------"
 echo -n "Silmek İstediğinize Emin Misiniz (y/n)? "
 echo "---------------------------------"
