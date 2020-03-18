@@ -8,7 +8,7 @@
 <hr></hr>
 <b> Linux : </b>
 <hr></hr>
-<pre>Yükleme Için :
+<pre>Yükleme Için (For Install) :
   ./start.sh -x
   x = -m (Mojave), -s (Sierra), -c (Catalina), -y (Yardım)
   Başlatmak İçin :
@@ -19,7 +19,7 @@
 <b> Windows : </b>
 <hr></hr>
 <pre>
-win-install.bat
+win-install.bat (For Install)
 win-basla.bat
 </pre>
 <hr></hr>
