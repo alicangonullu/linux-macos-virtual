@@ -4,6 +4,10 @@
 <hr></hr>
 <b>Linux ortamında macOS kullanabilmeniz için hazırlanmış bir sistemdir</b>
 <hr></hr>
+<pre>
+Recomments : 
+Python 3.x
+Bash System (For Windows No)</pre>
 <b>Nasıl Çalışır ?</b>
 <br>
 <b> Linux : </b>
