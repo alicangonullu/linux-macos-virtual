@@ -5,7 +5,7 @@
 <b>Linux ortamında macOS kullanabilmeniz için hazırlanmış bir sistemdir</b>
 <hr></hr>
 <b>Nasıl Çalışır ?</b>
-<hr></hr>
+<br>
 <b> Linux : </b>
 <hr></hr>
 <pre>Yükleme Için (For Install) :
