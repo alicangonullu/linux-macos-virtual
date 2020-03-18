@@ -10,10 +10,11 @@
 <pre>
 Recomments : 
 Python 3.x
-Bash System (For Windows No)</pre>
+Bash System (For Windows No)
+Limbo Emulator (For Android) </pre>
 <b>Nasıl Çalışır ?</b>
 <br>
-<b> Linux : </b>
+<b> Linux : (OR Android)</b>
 <hr></hr>
 <pre>Yükleme Için (For Install) :
   ./start.sh -x
@@ -22,6 +23,12 @@ Bash System (For Windows No)</pre>
   ./kvm-basla.sh
   Temizlemek İçin :
   ./temizle.sh
+Android :
+Yükleme Için (For Install) :
+  android/start.sh -x
+  x = -m (Mojave), -s (Sierra), -c (Catalina), -y (Yardım)
+  Temizlemek İçin :
+  android/temizle.sh
 </pre>
 <b> Windows : </b>
 <hr></hr>
