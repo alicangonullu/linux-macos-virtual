@@ -1,3 +1,5 @@
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Falicangonullu%2Flinux-macos-virtual.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Falicangonullu%2Flinux-macos-virtual?ref=badge_shield)
+
 <h1>Linux Automatic KVM macOS Installer / Remover</h1>
 <br>
 <b>Bu Nedir ?</b>
@@ -68,3 +70,7 @@ Edit or add new options (Yeni ayar düzenleyin veya ekleyin)
 <pre>Disk Utility->Erase->30 GB Disk->MacOS Journal Format
 the process. Then proceed to the installation. (işlemini yapın. Ardından kuruluma geçin.)</pre>
 <br>
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Falicangonullu%2Flinux-macos-virtual.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Falicangonullu%2Flinux-macos-virtual?ref=badge_large)
