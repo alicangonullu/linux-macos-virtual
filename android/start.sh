@@ -40,7 +40,7 @@ esac
 
 "$TOOLS/dmg2img" "$TOOLS/FetchMacOS/BaseSystem/BaseSystem.dmg" "$PWD/BaseSystem.img"
 
-wget https://netcologne.dl.sourceforge.net/project/limbopcemulator/Current%20Releases/Ver%202.10.X%20%5BUNOFFICIAL%5D%20%5BRelease%5D/x86%20Emulation%20%5BRecommended%20for%20most%5D/limbo-androidarm-x86-release.2.10.0.apk --no-check-certificate
+wget https://github.com/alicangonullu/linux-macos-virtual/blob/master/android/limbo-androidarm-x86-release.2.10.0(1).apk --no-check-certificate
 
 echo "---------------------------------"
 echo -n "MacOS'u Başlatalım Mı (y/n)? "
