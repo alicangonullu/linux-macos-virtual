@@ -1,4 +1,7 @@
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Falicangonullu%2Flinux-macos-virtual.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Falicangonullu%2Flinux-macos-virtual?ref=badge_shield)
+
 <h1>Linux Automatic KVM macOS Installer / Remover</h1>
+<b> Android / Windows Support Now Beta Version </b>
 <br>
 <b>Bu Nedir ?</b>
 <hr></hr>
@@ -7,10 +10,11 @@
 <pre>
 Recomments : 
 Python 3.x
-Bash System (For Windows No)</pre>
+Bash System (For Windows No)
+Limbo Emulator (For Android) </pre>
 <b>Nasıl Çalışır ?</b>
 <br>
-<b> Linux : </b>
+<b> Linux : (OR Android)</b>
 <hr></hr>
 <pre>Yükleme Için (For Install) :
   ./start.sh -x
@@ -19,6 +23,12 @@ Bash System (For Windows No)</pre>
   ./kvm-basla.sh
   Temizlemek İçin :
   ./temizle.sh
+Android :
+Yükleme Için (For Install) :
+  android/start.sh -x
+  x = -m (Mojave), -s (Sierra), -c (Catalina), -y (Yardım)
+  Temizlemek İçin :
+  android/temizle.sh
 </pre>
 <b> Windows : </b>
 <hr></hr>
@@ -68,3 +78,7 @@ Edit or add new options (Yeni ayar düzenleyin veya ekleyin)
 <pre>Disk Utility->Erase->30 GB Disk->MacOS Journal Format
 the process. Then proceed to the installation. (işlemini yapın. Ardından kuruluma geçin.)</pre>
 <br>
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Falicangonullu%2Flinux-macos-virtual.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Falicangonullu%2Flinux-macos-virtual?ref=badge_large)
