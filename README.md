@@ -1,7 +1,7 @@
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Falicangonullu%2Flinux-macos-virtual.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Falicangonullu%2Flinux-macos-virtual?ref=badge_shield)
 
 <h1>Linux Automatic KVM macOS Installer / Remover</h1>
-<b> Android / Windows Support Now Beta Version </b>
+<b> Windows/Android Beta, Linux Full Support </b>
 <br>
 <b>Bu Nedir ?</b>
 <hr></hr>
