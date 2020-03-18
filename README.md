@@ -4,9 +4,15 @@
 <hr></hr>
 <b>Linux ortamında macOS kullanabilmeniz için hazırlanmış bir sistemdir</b>
 <hr></hr>
+<pre>
+Recomments : 
+Python 3.x
+Bash System (For Windows No)</pre>
 <b>Nasıl Çalışır ?</b>
+<br>
+<b> Linux : </b>
 <hr></hr>
-<pre>Yükleme Için :
+<pre>Yükleme Için (For Install) :
   ./start.sh -x
   x = -m (Mojave), -s (Sierra), -c (Catalina), -y (Yardım)
   Başlatmak İçin :
@@ -14,6 +20,13 @@
   Temizlemek İçin :
   ./temizle.sh
 </pre>
+<b> Windows : </b>
+<hr></hr>
+<pre>
+win-install.bat (For Install)
+win-basla.bat
+</pre>
+<hr></hr>
 If you have sound problem, please edit kvm-basla.sh (Eğer ses sorununuz olursa kvm-basla.sh'ı düzenleyin) :
 <pre>
 export QEMU_AUDIO_DRV=pa

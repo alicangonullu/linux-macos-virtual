@@ -32,8 +32,6 @@ case $argument in
         "$TOOLS/fetch.sh" -v 10.15 || exit 1;
         ;;
 esac
-wget http://linux4u.jinr.ru/pub/misc/KVM/latest-virtio/virtio-win-gt-x64.msi
-start virtio-win-gt-x64.msi
 "$TOOLS/dmg2img.exe" "$TOOLS/BaseSystem/BaseSystem.dmg" "$PWD/BaseSystem.img"
 
 echo "---------------------------------"
@@ -42,7 +40,6 @@ echo "---------------------------------"
 read answer
 
 if [ "$answer" != "${answer#[Yy]}" ] ;then
-$PWD/forwin/qemu/qemu-img.exe create -f qcow2 MyDisk.qcow2 30G
 sh $PWD/forwin/winbasla.sh
 clear
 echo "---------------------------------"

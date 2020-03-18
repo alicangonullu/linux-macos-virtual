@@ -2,15 +2,19 @@
 OSK="ourhardworkbythesewordsguardedpleasedontsteal(c)AppleComputerInc"
 VMDIR=../
 OVMF=$VMDIR/firmware
+TOOLS=$PWD/forwin
 
 SYSTEM_DISK="${PWD}/MyDisk.qcow2"
 BASE_DISK="${PWD}/BaseSystem.img"
 BOOT_DISK="${PWD}/ESP.qcow2"
 
+"$TOOLS/dmg2img.exe" "$TOOLS/BaseSystem/BaseSystem.dmg" "$PWD/BaseSystem.img"
+$PWD/forwin/qemu/qemu-img.exe create -f qcow2 $PWD/MyDisk.qcow2 30G
+
 $PWD/forwin/qemu/qemu-system-x86_64.exe \
     -m 2G \
     -smp cpus=3 \
-	-machine q35 \
+    -machine q35 \
     -cpu Penryn,vendor=GenuineIntel,+sse3,+sse4.2,+aes,+xsave,+avx,+xsaveopt,+xsavec,+xgetbv1,+avx2,+bmi2,+smep,+bmi1,+fma,+movbe,+invtsc \
     -device isa-applesmc,osk="$OSK" \
     -smbios type=2 \
@@ -29,4 +33,4 @@ $PWD/forwin/qemu/qemu-system-x86_64.exe \
     -device ide-hd,bus=sata.3,drive=InstallMedia \
     -drive id=SystemDisk,if=none,file="${SYSTEM_DISK}" \
     -device ide-hd,bus=sata.4,drive=SystemDisk \
-	-k tr
+    -k tr
