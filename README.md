@@ -6,6 +6,8 @@
 <hr></hr>
 <b>Nasıl Çalışır ?</b>
 <hr></hr>
+<b> Linux : </b>
+<hr></hr>
 <pre>Yükleme Için :
   ./start.sh -x
   x = -m (Mojave), -s (Sierra), -c (Catalina), -y (Yardım)
@@ -14,6 +16,13 @@
   Temizlemek İçin :
   ./temizle.sh
 </pre>
+<b> Windows : </b>
+<hr></hr>
+<pre>
+win-install.bat
+win-basla.bat
+</pre>
+<hr></hr>
 If you have sound problem, please edit kvm-basla.sh (Eğer ses sorununuz olursa kvm-basla.sh'ı düzenleyin) :
 <pre>
 export QEMU_AUDIO_DRV=pa
