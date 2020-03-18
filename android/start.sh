@@ -2,8 +2,7 @@ TOOLS=$PWD/araclar
 sudo chmod +x kvm-basla.sh
 chmod +x temizle.sh
 chmod +x $TOOLS/FetchMacOS/fetch.sh
-apt update
-sudo apt-get install qemu-system qemu-utils python3 python3-pip
+apt install python3 python-pip
 clear
 
 kullanim_goster() {
