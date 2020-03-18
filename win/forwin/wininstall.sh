@@ -40,7 +40,6 @@ echo "---------------------------------"
 read answer
 
 if [ "$answer" != "${answer#[Yy]}" ] ;then
-$PWD/forwin/qemu/qemu-img.exe create -f qcow2 MyDisk.qcow2 30G
 sh $PWD/forwin/winbasla.sh
 clear
 echo "---------------------------------"
