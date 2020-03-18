@@ -2,10 +2,14 @@
 OSK="ourhardworkbythesewordsguardedpleasedontsteal(c)AppleComputerInc"
 VMDIR=../
 OVMF=$VMDIR/firmware
+TOOLS=$PWD/forwin
 
 SYSTEM_DISK="${PWD}/MyDisk.qcow2"
 BASE_DISK="${PWD}/BaseSystem.img"
 BOOT_DISK="${PWD}/ESP.qcow2"
+
+"$TOOLS/dmg2img.exe" "$TOOLS/BaseSystem/BaseSystem.dmg" "$PWD/BaseSystem.img"
+$PWD/forwin/qemu/qemu-img.exe create -f qcow2 $PWD/MyDisk.qcow2 30G
 
 $PWD/forwin/qemu/qemu-system-x86_64.exe \
     -m 2G \

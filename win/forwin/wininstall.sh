@@ -32,8 +32,6 @@ case $argument in
         "$TOOLS/fetch.sh" -v 10.15 || exit 1;
         ;;
 esac
-wget http://linux4u.jinr.ru/pub/misc/KVM/latest-virtio/virtio-win-gt-x64.msi
-start virtio-win-gt-x64.msi
 "$TOOLS/dmg2img.exe" "$TOOLS/BaseSystem/BaseSystem.dmg" "$PWD/BaseSystem.img"
 
 echo "---------------------------------"
