@@ -77,5 +77,6 @@ Edit or add new options (Yeni ayar düzenleyin veya ekleyin)
 <b>To Install on Disk</b>
 <pre>Disk Utility->Erase->30 GB Disk->MacOS Journal Format
 the process. Then proceed to the installation. (işlemini yapın. Ardından kuruluma geçin.)</pre>
+<img src="https://raw.githubusercontent.com/alicangonullu/linux-macos-virtual/master/resim1.png" width="500" height="500">
 <br>
 
