@@ -79,5 +79,6 @@ Edit or add new options (Yeni ayar düzenleyin veya ekleyin)
 the process. Then proceed to the installation. (işlemini yapın. Ardından kuruluma geçin.)</pre>
 <img src="https://raw.githubusercontent.com/alicangonullu/linux-macos-virtual/master/resim1.png" width="800" height="500">
 <img src="https://raw.githubusercontent.com/alicangonullu/linux-macos-virtual/master/resim2.png" width="800" height="500">
+<img src="https://raw.githubusercontent.com/alicangonullu/linux-macos-virtual/master/resim3.png" width="800" height="500">
 <br>
 
