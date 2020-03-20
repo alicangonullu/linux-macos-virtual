@@ -2,12 +2,14 @@
 OSK="ourhardworkbythesewordsguardedpleasedontsteal(c)AppleComputerInc"
 VMDIR=$PWD
 OVMF=$VMDIR/firmware
+TOOLS=$PWD/araclar
 
 export QEMU_AUDIO_DRV=alsa
 export QEMU_PA_SINK=alsa_output.pci-0000_04_01.0.analog-stereo.monitor
 export QEMU_PA_SOURCE=input
 
 SYSTEM_DISK="MyDisk.qcow2"
+"$TOOLS/dmg2img" "$TOOLS/FetchMacOS/BaseSystem/BaseSystem.dmg" "$PWD/BaseSystem.img"
 qemu-img create -f qcow2 $SYSTEM_DISK 30G
 
 [[ -z "$MEM" ]] && {
