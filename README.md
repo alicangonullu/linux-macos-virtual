@@ -82,5 +82,6 @@ the process. Then proceed to the installation. (işlemini yapın. Ardından kuru
 <img src="https://raw.githubusercontent.com/alicangonullu/linux-macos-virtual/master/resim3.png" width="800" height="500">
 <img src="https://raw.githubusercontent.com/alicangonullu/linux-macos-virtual/master/resim4.png" width="800" height="500">
 <img src="https://raw.githubusercontent.com/alicangonullu/linux-macos-virtual/master/resim5.png" width="800" height="500">
+<img src="https://raw.githubusercontent.com/alicangonullu/linux-macos-virtual/master/resim6.png" width="800" height="500">
 <br>
 
