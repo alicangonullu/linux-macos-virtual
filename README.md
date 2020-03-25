@@ -8,8 +8,9 @@
 <b>Linux ortamında macOS kullanabilmeniz için hazırlanmış bir sistemdir</b>
 <hr></hr>
 <pre>
-Recomments : 
-Python 3.x (For iOS Add Repo mcapollo.github.com/Public or iosrepo.cyberarchive.top TO Cydia)
+Recomments :
+Jailbreak / Root (For Mobile)
+Python 3.x (For iOS Add Repo mcapollo.github.io/Public or iosrepo.cyberarchive.top To Cydia)
 qemu and VNC Client (For iOS)
 Bash System (For Windows No)
 Limbo Emulator (For Android) </pre>
