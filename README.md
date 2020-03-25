@@ -9,7 +9,8 @@
 <hr></hr>
 <pre>
 Recomments : 
-Python 3.x
+Python 3.x (For iOS Add Repo mcapollo.github.com/Public or iosrepo.cyberarchive.top TO Cydia)
+qemu and VNC Client (For iOS)
 Bash System (For Windows No)
 Limbo Emulator (For Android) </pre>
 <b>Nasıl Çalışır ?</b>
@@ -23,12 +24,20 @@ Limbo Emulator (For Android) </pre>
   ./kvm-basla.sh
   Temizlemek İçin :
   ./temizle.sh
+  
 Android :
 Yükleme Için (For Install) :
   android/start.sh -x
   x = -m (Mojave), -s (Sierra), -c (Catalina), -y (Yardım)
   Temizlemek İçin :
   android/temizle.sh
+
+iOS (VNC 127.0.0.1) :
+Yükleme Için (For Install) :
+  ios/start.sh -x
+  x = -m (Mojave), -s (Sierra), -c (Catalina), -y (Yardım)
+  Temizlemek İçin :
+  ios/temizle.sh
 </pre>
 <b> Windows : </b>
 <hr></hr>
