@@ -14,6 +14,7 @@ kullanim_goster() {
     echo " -s, --high-sierra   High Sierra Kurulumu."
     echo " -m, --mojave        Mojave Kurulumu."
     echo " -c, --catalina      Catalina Kurulumu."
+    echo " -u, --unknown      Catalina Kurulumu."
     echo
 }
 
