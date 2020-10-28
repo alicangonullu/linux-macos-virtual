@@ -18,9 +18,7 @@ logger = logging.getLogger('webactivity')
 
 
 class ClientMeta:
-    # Client used to connect to the Software CDN
     osinstall = {"User-Agent":"osinstallersetupplaind (unknown version) CFNetwork/720.5.7 Darwin/14.5.0 (x86_64)"}
-    # Client used to connect to the Software Distribution service
     swupdate = {"User-Agent":"Software%20Update (unknown version) CFNetwork/807.0.1 Darwin/16.0.0 (x86_64)"}
 
 
@@ -29,7 +27,6 @@ class Filesystem:
     def download_file(url, size, path):
         label = url.split('/')[-1]
         filename = os.path.join(path, label)
-        # Set to stream mode for large files
         remote = requests.get(url, stream=True, headers=ClientMeta.osinstall)
 
         with open(filename, 'wb') as f:
@@ -62,8 +59,13 @@ class Filesystem:
         return root
 
 class SoftwareService:
-    # macOS 10.15 is available in 4 different catalogs from SoftwareScan
     catalogs = {
+                 "10.16": {
+                    "CustomerSeed":"https://swscan.apple.com/content/catalogs/others/index-10.16customerseed-10.16-10.15-10.14-10.13-10.12-10.11-10.10-10.9-mountainlion-lion-snowleopard-leopard.merged-1.sucatalog",
+                    "DeveloperSeed":"https://swscan.apple.com/content/catalogs/others/index-10.16seed-10.16-10.15-10.14-10.13-10.12-10.11-10.10-10.9-mountainlion-lion-snowleopard-leopard.merged-1.sucatalog",
+                    "PublicSeed":"https://swscan.apple.com/content/catalogs/others/index-10.16beta-10.16-10.15-10.14-10.13-10.12-10.11-10.10-10.9-mountainlion-lion-snowleopard-leopard.merged-1.sucatalog",
+                    "PublicRelease":"https://swscan.apple.com/content/catalogs/others/index-10.16-10.15-10.14-10.13-10.12-10.11-10.10-10.9-mountainlion-lion-snowleopard-leopard.merged-1.sucatalog"
+                        },
                 "10.15": {
                     "CustomerSeed":"https://swscan.apple.com/content/catalogs/others/index-10.15customerseed-10.15-10.14-10.13-10.12-10.11-10.10-10.9-mountainlion-lion-snowleopard-leopard.merged-1.sucatalog",
                     "DeveloperSeed":"https://swscan.apple.com/content/catalogs/others/index-10.15seed-10.15-10.14-10.13-10.12-10.11-10.10-10.9-mountainlion-lion-snowleopard-leopard.merged-1.sucatalog",
@@ -88,17 +90,16 @@ class SoftwareService:
         return self.catalog_data
 
     def getosinstall(self):
-        # Load catalogs based on Py3/2 lib
+
         root = Filesystem.parse_plist(self.catalog_data)
 
-        # Iterate to find valid OSInstall packages
         ospackages = []
         products = root['Products']
         for product in products:
             if products.get(product, {}).get('ExtendedMetaInfo', {}).get('InstallAssistantPackageIdentifiers', {}).get('OSInstall', {}) == 'com.apple.mpkg.OSInstall':
                 ospackages.append(product)
                 
-        # Iterate for an specific version
+
         candidates = []
         for product in ospackages:
             meta_url = products.get(product, {}).get('ServerMetadataURL', {})
@@ -128,10 +129,10 @@ class MacOSProduct:
 
 @click.command()
 @click.option('-o', '--output-dir', default="BaseSystem/", help="Çıkış Klasoru.")
-@click.option('-v', '--catalog-version', default="10.15", help="Katalog Versiyonu.")
+@click.option('-v', '--catalog-version', default="10.16", help="Katalog Versiyonu.")
 @click.option('-c', '--catalog-id', default="PublicRelease", help="Katalog Adı.")
 @click.option('-p', '--product-id', default="", help="Ürün ID (as seen in SoftwareUpdate).")
-def fetchmacos(output_dir="BaseSystem/", catalog_version="10.15", catalog_id="PublicRelease", product_id=""):
+def fetchmacos(output_dir="BaseSystem/", catalog_version="10.16", catalog_id="PublicRelease", product_id=""):
     # Get the remote catalog data
     remote = SoftwareService(catalog_version, catalog_id)
     catalog = remote.getcatalog()
